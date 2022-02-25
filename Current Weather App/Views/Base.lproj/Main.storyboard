@@ -101,6 +101,9 @@
                                             <color key="baseForegroundColor" red="0.96841138599999999" green="0.89993733549999999" blue="0.68703045110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="baseBackgroundColor" red="0.43794584393811953" green="0.62235487428162628" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="seacrhButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2O3-DF-9ml"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -126,6 +129,12 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="sKp-e5-mNd" id="I5U-z4-KdL"/>
+                        <outlet property="feelsLikeTemperatureLabel" destination="iAM-wO-r1T" id="jbH-ei-RNY"/>
+                        <outlet property="temperatureLabel" destination="tfa-4f-Th0" id="jgj-Zn-O6m"/>
+                        <outlet property="weatherIconImageView" destination="sbC-tc-u7j" id="rww-DZ-DaA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

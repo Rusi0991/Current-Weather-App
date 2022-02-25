@@ -13,6 +13,7 @@
 		5749161927C8459D000AF1B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5749161727C8459D000AF1B9 /* Main.storyboard */; };
 		5749161B27C8459F000AF1B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5749161A27C8459F000AF1B9 /* Assets.xcassets */; };
 		5749161E27C8459F000AF1B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5749161C27C8459F000AF1B9 /* LaunchScreen.storyboard */; };
+		5749162A27C87117000AF1B9 /* Alert Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749162927C87117000AF1B9 /* Alert Controller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5749161A27C8459F000AF1B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5749161D27C8459F000AF1B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5749161F27C8459F000AF1B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5749162927C87117000AF1B9 /* Alert Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert Controller.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		5749161027C8459D000AF1B9 /* Current Weather App */ = {
 			isa = PBXGroup;
 			children = (
+				5749162827C870DF000AF1B9 /* Extension */,
 				5749162627C845FE000AF1B9 /* Views */,
 				5749162527C845C7000AF1B9 /* View Controllers */,
 				5749162727C84647000AF1B9 /* Supporting Files */,
@@ -89,6 +92,14 @@
 				5749161F27C8459F000AF1B9 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5749162827C870DF000AF1B9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5749162927C87117000AF1B9 /* Alert Controller.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5749161627C8459D000AF1B9 /* ViewController.swift in Sources */,
+				5749162A27C87117000AF1B9 /* Alert Controller.swift in Sources */,
 				5749161227C8459D000AF1B9 /* AppDelegate.swift in Sources */,
 				5749161427C8459D000AF1B9 /* SceneDelegate.swift in Sources */,
 			);
