@@ -25,5 +25,7 @@ class ViewController: UIViewController {
         self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert)
     }
     
+    @IBAction func menuTapped(_ sender: Any) {
+    }
 }
 
