@@ -8,22 +8,20 @@
 import UIKit
 
 class HamburgerViewController: UIViewController {
-
+    @IBOutlet var mainBackgroundView: UIView!
+    
+    @IBOutlet weak var logoPicImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        hamburgerUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func hamburgerUI(){
+        mainBackgroundView.layer.cornerRadius = 30
+        mainBackgroundView.clipsToBounds = true
+        logoPicImage.layer.cornerRadius = 40
+        logoPicImage.clipsToBounds = true
     }
-    */
-
+    
 }

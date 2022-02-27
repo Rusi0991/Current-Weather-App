@@ -8,7 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var mainView: UIView!
     
+    @IBOutlet weak var hamburgerView: UIView!
     @IBOutlet weak var weatherIconImageView: UIImageView!
     
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -18,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        hamburgerView.isHidden = true
     }
 
     @IBAction func seacrhButtonTapped(_ sender: Any) {
