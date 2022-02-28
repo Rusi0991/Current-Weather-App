@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iDk-Oe-eDJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="j0G-kG-tWH">
-                                <rect key="frame" x="87" y="66" width="240" height="337"/>
+                                <rect key="frame" x="87" y="110" width="240" height="337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sbC-tc-u7j">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="186"/>
@@ -79,7 +79,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rKk-WP-DHa">
-                                <rect key="frame" x="142" y="787" width="252" height="50"/>
+                                <rect key="frame" x="142" y="831" width="252" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-e5-mNd">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
@@ -116,7 +116,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="327" height="896"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22t-KI-WDJ">
-                                        <rect key="frame" x="0.0" y="44" width="327" height="769"/>
+                                        <rect key="frame" x="0.0" y="88" width="327" height="725"/>
                                         <connections>
                                             <segue destination="a7V-7G-qso" kind="embed" id="ZXp-bW-jlf"/>
                                         </connections>
@@ -150,11 +150,20 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zTw-qs-3MM">
+                        <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="vJW-Jk-aEQ">
+                            <connections>
+                                <action selector="menuButtonClicked:" destination="BYZ-38-t0r" id="0x2-JS-sBD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cityLabel" destination="sKp-e5-mNd" id="I5U-z4-KdL"/>
                         <outlet property="feelsLikeTemperatureLabel" destination="iAM-wO-r1T" id="jbH-ei-RNY"/>
                         <outlet property="hamburgerView" destination="6BL-8Z-Zak" id="Op7-4M-ug4"/>
+                        <outlet property="hamburgerViewLeadingC" destination="e5Z-Pk-UeG" id="iWR-VN-ZRr"/>
+                        <outlet property="hamburgerViewTrailingC" destination="eR6-by-Ew6" id="TYh-Xi-UXz"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="Fh3-Yb-UQd"/>
                         <outlet property="temperatureLabel" destination="tfa-4f-Th0" id="jgj-Zn-O6m"/>
                         <outlet property="weatherIconImageView" destination="sbC-tc-u7j" id="rww-DZ-DaA"/>
@@ -162,14 +171,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.88405797101461" y="103.79464285714285"/>
+            <point key="canvasLocation" x="1742.0289855072465" y="103.79464285714285"/>
         </scene>
         <!--My Cities View Controller-->
         <scene sceneID="3Di-Dp-4FW">
             <objects>
                 <viewController id="Myf-zj-IFb" customClass="MyCitiesViewController" customModule="Current_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tan-3a-jP7">
-                        <rect key="frame" x="0.0" y="0.0" width="327" height="715"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4OE-tn-Alc"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -185,7 +194,7 @@
             <objects>
                 <viewController id="ncZ-y5-p5c" customClass="ConverterViewController" customModule="Current_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JKa-ip-Q4v">
-                        <rect key="frame" x="0.0" y="0.0" width="327" height="715"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="jYZ-Fk-tpD"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -201,7 +210,7 @@
             <objects>
                 <viewController id="cm8-rh-a0R" customClass="SettingsViewController" customModule="Current_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ef7-bS-ky4">
-                        <rect key="frame" x="0.0" y="0.0" width="327" height="715"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NNZ-Nn-Gj0"/>
                         <color key="backgroundColor" red="0.96841138599999999" green="0.65480964279999998" blue="0.13681040789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -217,14 +226,14 @@
             <objects>
                 <viewController id="a7V-7G-qso" customClass="HamburgerViewController" customModule="Current_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Io-P3-FCC">
-                        <rect key="frame" x="0.0" y="0.0" width="327" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSE-4N-GNl">
-                                <rect key="frame" x="0.0" y="0.0" width="327" height="196"/>
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="152"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon-1" translatesAutoresizingMaskIntoConstraints="NO" id="whm-ba-R7v">
-                                        <rect key="frame" x="79" y="14" width="169" height="168"/>
+                                        <rect key="frame" x="79" y="14" width="169" height="124"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </imageView>
                                 </subviews>
@@ -237,7 +246,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WZm-gJ-VYk">
-                                <rect key="frame" x="16" y="204" width="273" height="139"/>
+                                <rect key="frame" x="16" y="160" width="273" height="139"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-R8-wR3">
                                         <rect key="frame" x="0.0" y="0.0" width="273" height="41"/>
@@ -302,13 +311,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGs-6N-8uC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819.5652173913045" y="99.441964285714278"/>
+            <point key="canvasLocation" x="2729.7101449275365" y="99.441964285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KEb-nb-7Nw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iDk-Oe-eDJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEK-j9-BPv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Bss-Nd-INt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAq-d0-sl8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.88405797101461" y="103.79464285714285"/>
         </scene>
     </scenes>
     <resources>
         <image name="appIcon-1" width="404.5" height="404"/>
         <image name="background" width="375" height="667"/>
         <image name="cloud.rain.fill" catalog="system" width="125" height="128"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
