@@ -20,12 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     
     @IBOutlet weak var cityLabel: UILabel!
-    
+    let networkWeatherClient = NetworkWeatherClient()
     var menuOut = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
+        networkWeatherClient.fetchCurrentWeather()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,13 +47,25 @@ class ViewController: UIViewController {
             menuOut = false
             hamburgerView.isHidden = true
         }
-        
-        
+//
+//        UIView.animate(withDuration: 3, delay: 0.0, options: .curveEaseIn, animations:  {
+//            self.view.setNeedsLayout()
+//            self.view.layoutIfNeeded()
+//        })
+
+//                        {(animationComplete) in
+//                            print("The animation is complete")
+//
+//        }
+
+
     }
     @IBAction func seacrhButtonTapped(_ sender: Any) {
         self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert)
     }
     
-   
+
+
+                   
+    }
     
-}
