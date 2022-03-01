@@ -19,6 +19,7 @@
 		5749163227C9AAC2000AF1B9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163127C9AAC2000AF1B9 /* SettingsViewController.swift */; };
 		5749163427CAEA42000AF1B9 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163327CAEA42000AF1B9 /* HamburgerViewController.swift */; };
 		5749163727CDA3A7000AF1B9 /* NetworkWeatherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */; };
+		5749163927CDA694000AF1B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163827CDA694000AF1B9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5749163127C9AAC2000AF1B9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5749163327CAEA42000AF1B9 /* HamburgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherClient.swift; sourceTree = "<group>"; };
+		5749163827CDA694000AF1B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				5749161127C8459D000AF1B9 /* AppDelegate.swift */,
+				5749163827CDA694000AF1B9 /* Constants.swift */,
 				5749161327C8459D000AF1B9 /* SceneDelegate.swift */,
 				5749161A27C8459F000AF1B9 /* Assets.xcassets */,
 				5749161F27C8459F000AF1B9 /* Info.plist */,
@@ -201,6 +204,7 @@
 				5749163227C9AAC2000AF1B9 /* SettingsViewController.swift in Sources */,
 				5749163727CDA3A7000AF1B9 /* NetworkWeatherClient.swift in Sources */,
 				5749162A27C87117000AF1B9 /* Alert Controller.swift in Sources */,
+				5749163927CDA694000AF1B9 /* Constants.swift in Sources */,
 				5749163427CAEA42000AF1B9 /* HamburgerViewController.swift in Sources */,
 				5749161227C8459D000AF1B9 /* AppDelegate.swift in Sources */,
 				5749161427C8459D000AF1B9 /* SceneDelegate.swift in Sources */,

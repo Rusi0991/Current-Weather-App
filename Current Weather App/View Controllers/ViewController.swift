@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
-        networkWeatherClient.fetchCurrentWeather()
+        networkWeatherClient.fetchCurrentWeather(forCity: "London")
         
     }
     
@@ -61,7 +61,11 @@ class ViewController: UIViewController {
 
     }
     @IBAction func seacrhButtonTapped(_ sender: Any) {
-        self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert)
+        self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert){ city in
+            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
+            
+        }
+    
     }
     
 
