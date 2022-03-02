@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct CurrentWeatherResponses {
+struct CurrentWeatherResponses : Codable {
     let name : String
     let main : Main
     let weather : [Weather]
 }
 
-struct Main {
+struct Main : Codable {
     let temp : Double
     let feelsLike : Double
     
@@ -23,6 +23,6 @@ struct Main {
         
     }
 }
-struct Weather {
+struct Weather : Codable {
     let id : Int
 }

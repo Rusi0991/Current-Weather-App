@@ -17,8 +17,20 @@ struct NetworkWeatherClient {
         if let data = data {
             let dataString = String(data: data, encoding: .utf8)
             print(dataString)
+            self.parseJSON(withData : data)
+            
         }
     }
     task.resume()
+}
+    
+    func parseJSON(withData data : Data){
+        let decoder = JSONDecoder()
+        do{
+           let responseObject = try decoder.decode(CurrentWeatherResponses.self, from: data)
+            print(responseObject.main.temp)
+        } catch let error as NSError{
+            print(error.localizedDescription)
+        }
 }
 }
