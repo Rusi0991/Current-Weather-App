@@ -293,6 +293,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="wWO-NR-CU2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="WZm-gJ-VYk" secondAttribute="trailing" constant="22" id="3W8-7e-M03"/>
@@ -312,6 +313,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGs-6N-8uC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2729.7101449275365" y="99.441964285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="B4K-jw-y6r">
+            <objects>
+                <viewController id="ySw-Wc-4r5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iSm-8C-qgr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud.sun.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZeA-7t-gCR">
+                                <rect key="frame" x="87" y="162" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hHX-ma-FhF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDr-aG-dXH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3533" y="174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KEb-nb-7Nw">
@@ -336,6 +358,7 @@
         <image name="appIcon-1" width="404.5" height="404"/>
         <image name="background" width="375" height="667"/>
         <image name="cloud.rain.fill" catalog="system" width="125" height="128"/>
+        <image name="cloud.sun.fill" catalog="system" width="128" height="95"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">

@@ -20,13 +20,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     
     @IBOutlet weak var cityLabel: UILabel!
-    let networkWeatherClient = NetworkWeatherClient()
+    var networkWeatherClient = NetworkWeatherClient()
     var menuOut = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
+        
+        
+                    self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
+                        print(currentWeather.cityName)
+                    }
         networkWeatherClient.fetchCurrentWeather(forCity: "London")
+//        {[weak self] currentWeather in
+//            print(currentWeather.cityName)
+//        }
         
     }
     
@@ -61,11 +69,18 @@ class ViewController: UIViewController {
 
     }
     @IBAction func seacrhButtonTapped(_ sender: Any) {
-        self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert){ city in
+        self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
             self.networkWeatherClient.fetchCurrentWeather(forCity: city)
             
         }
     
+    }
+    
+    func updateInterface(with weather : CurrentWeather){
+        self.cityLabel.text = weather.cityName
+        self.temperatureLabel.text = weather.temperatureString
+        self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
+        self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
     }
     
 
