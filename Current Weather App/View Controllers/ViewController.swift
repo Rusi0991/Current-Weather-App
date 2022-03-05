@@ -25,22 +25,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         hamburgerView.isHidden = true
         
         
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
                         print(currentWeather.cityName)
+                        guard let self = self else {return}
+                        self.updateInterfaceWith(weather: currentWeather)
+                        
+                       
                     }
-        networkWeatherClient.fetchCurrentWeather(forCity: "London")
-//        {[weak self] currentWeather in
-//            print(currentWeather.cityName)
-//        }
+        
+        networkWeatherClient.fetchCurrentWeather(forCity: "San Francisco")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hamburgerView.isHidden = true
+        
+        
+        networkWeatherClient.fetchCurrentWeather(forCity: "San Francisco")
+        
     }
 
     @IBAction func menuButtonClicked(_ sender: Any) {
@@ -76,11 +83,16 @@ class ViewController: UIViewController {
     
     }
     
-    func updateInterface(with weather : CurrentWeather){
-        self.cityLabel.text = weather.cityName
-        self.temperatureLabel.text = weather.temperatureString
-        self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
-        self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
+    func updateInterfaceWith(weather : CurrentWeather){
+        DispatchQueue.main.async {
+            
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.temperatureString
+            self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
+            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
+            
+        }
+        
     }
     
 

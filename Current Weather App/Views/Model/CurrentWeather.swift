@@ -11,11 +11,11 @@ struct CurrentWeather{
     let temperature : Double
 //    because label has string in it
     var temperatureString : String{
-        return "\(temperature.rounded())"
+        return String( format : "%.0f", temperature)
     }
     let feelsLikeTemperature : Double
     var feelsLikeTemperatureString : String{
-        return"\(feelsLikeTemperature)"
+        return String( format : "%.0f", feelsLikeTemperature)
     }
     let conditionCode : Int
     
