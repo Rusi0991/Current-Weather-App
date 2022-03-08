@@ -16,7 +16,6 @@
 		5749162A27C87117000AF1B9 /* Alert Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749162927C87117000AF1B9 /* Alert Controller.swift */; };
 		5749162C27C9AA4B000AF1B9 /* MyCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749162B27C9AA4B000AF1B9 /* MyCitiesViewController.swift */; };
 		5749163027C9AAA9000AF1B9 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749162F27C9AAA9000AF1B9 /* ConverterViewController.swift */; };
-		5749163227C9AAC2000AF1B9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163127C9AAC2000AF1B9 /* SettingsViewController.swift */; };
 		5749163427CAEA42000AF1B9 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163327CAEA42000AF1B9 /* HamburgerViewController.swift */; };
 		5749163727CDA3A7000AF1B9 /* NetworkWeatherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */; };
 		5749163927CDA694000AF1B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163827CDA694000AF1B9 /* Constants.swift */; };
@@ -36,7 +35,6 @@
 		5749162927C87117000AF1B9 /* Alert Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert Controller.swift"; sourceTree = "<group>"; };
 		5749162B27C9AA4B000AF1B9 /* MyCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesViewController.swift; sourceTree = "<group>"; };
 		5749162F27C9AAA9000AF1B9 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
-		5749163127C9AAC2000AF1B9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5749163327CAEA42000AF1B9 /* HamburgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherClient.swift; sourceTree = "<group>"; };
 		5749163827CDA694000AF1B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				5749162F27C9AAA9000AF1B9 /* ConverterViewController.swift */,
 				5749163327CAEA42000AF1B9 /* HamburgerViewController.swift */,
 				5749162B27C9AA4B000AF1B9 /* MyCitiesViewController.swift */,
-				5749163127C9AAC2000AF1B9 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -207,7 +204,6 @@
 			files = (
 				5749162C27C9AA4B000AF1B9 /* MyCitiesViewController.swift in Sources */,
 				5749161627C8459D000AF1B9 /* ViewController.swift in Sources */,
-				5749163227C9AAC2000AF1B9 /* SettingsViewController.swift in Sources */,
 				5749163727CDA3A7000AF1B9 /* NetworkWeatherClient.swift in Sources */,
 				5749162A27C87117000AF1B9 /* Alert Controller.swift in Sources */,
 				5749163927CDA694000AF1B9 /* Constants.swift in Sources */,
@@ -372,6 +368,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -401,6 +398,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

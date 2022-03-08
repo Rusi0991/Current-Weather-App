@@ -110,7 +110,7 @@ extension ViewController : CLLocationManagerDelegate{
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-        networkWeatherClient.fetchCurrentWeather(forCity: <#T##String#>)
+        networkWeatherClient.fetchCurrentWeatherFromLocation(latitude: latitude, longitude: longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
