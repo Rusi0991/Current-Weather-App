@@ -16,24 +16,15 @@ class NetworkWeatherClient {
 
     let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=imperial"
     
-        guard let url = URL(string: urlString) else {return}
-    let session = URLSession(configuration: .default)
-    let task =  session.dataTask(with: url) { data, response, error in
-        if let data = data {
-
-            if let currentWeather = self.parseJSON(withData : data){
-
-                 self.onCompletion?(currentWeather)
-                print("currentWeather: \(currentWeather)")
-            }
-        }
-    }
-    task.resume()
+   performFetch(withURLString: urlString)
 }
-    func fetchCurrentWeatherLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
+    func fetchCurrentWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
 
     let urlString = "https://api.openweathermap.org/geo/1.0/reverse?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
-    
+    performFetch(withURLString: urlString)
+  
+}
+   fileprivate func performFetch(withURLString urlString : String){
         guard let url = URL(string: urlString) else {return}
     let session = URLSession(configuration: .default)
     let task =  session.dataTask(with: url) { data, response, error in
@@ -47,8 +38,9 @@ class NetworkWeatherClient {
         }
     }
     task.resume()
-}
-    func parseJSON(withData data : Data) -> CurrentWeather?{
+    }
+    
+   fileprivate func parseJSON(withData data : Data) -> CurrentWeather?{
         let decoder = JSONDecoder()
         do{
            let currentWeatherData = try decoder.decode(CurrentWeatherResponses.self, from: data)
