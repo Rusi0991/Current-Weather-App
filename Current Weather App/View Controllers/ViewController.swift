@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
+
 
 class ViewController: UIViewController {
-    @IBOutlet var mainView: UIView!
+//    @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var hamburgerView: UIView!
     
@@ -20,24 +22,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     
     @IBOutlet weak var cityLabel: UILabel!
+    
+    var locationManager = CLLocationManager()
     var networkWeatherClient = NetworkWeatherClient()
     var menuOut = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
         hamburgerView.isHidden = true
-        
         
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
                         print(currentWeather.cityName)
                         guard let self = self else {return}
                         self.updateInterfaceWith(weather: currentWeather)
-                        
-                       
+                    
                     }
-        
-        networkWeatherClient.fetchCurrentWeather(forCity: "San Francisco")
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.requestLocation()
+        }
         
     }
     
@@ -99,4 +104,16 @@ class ViewController: UIViewController {
 
                    
     }
+extension ViewController : CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else{return}
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        networkWeatherClient.fetchCurrentWeather(forCity: <#T##String#>)
+    }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}

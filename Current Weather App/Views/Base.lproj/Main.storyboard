@@ -164,7 +164,6 @@
                         <outlet property="hamburgerView" destination="6BL-8Z-Zak" id="Op7-4M-ug4"/>
                         <outlet property="hamburgerViewLeadingC" destination="e5Z-Pk-UeG" id="iWR-VN-ZRr"/>
                         <outlet property="hamburgerViewTrailingC" destination="eR6-by-Ew6" id="TYh-Xi-UXz"/>
-                        <outlet property="mainView" destination="8bC-Xf-vdC" id="Fh3-Yb-UQd"/>
                         <outlet property="temperatureLabel" destination="tfa-4f-Th0" id="jgj-Zn-O6m"/>
                         <outlet property="weatherIconImageView" destination="sbC-tc-u7j" id="rww-DZ-DaA"/>
                     </connections>
