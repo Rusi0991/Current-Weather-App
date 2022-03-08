@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class NetworkWeatherClient {
     
@@ -29,7 +30,24 @@ class NetworkWeatherClient {
     }
     task.resume()
 }
+    func fetchCurrentWeatherLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
+
+    let urlString = "https://api.openweathermap.org/geo/1.0/reverse?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
     
+        guard let url = URL(string: urlString) else {return}
+    let session = URLSession(configuration: .default)
+    let task =  session.dataTask(with: url) { data, response, error in
+        if let data = data {
+
+            if let currentWeather = self.parseJSON(withData : data){
+
+                 self.onCompletion?(currentWeather)
+                print("currentWeather: \(currentWeather)")
+            }
+        }
+    }
+    task.resume()
+}
     func parseJSON(withData data : Data) -> CurrentWeather?{
         let decoder = JSONDecoder()
         do{
