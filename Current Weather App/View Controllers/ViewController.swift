@@ -23,15 +23,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
     
-    var locationManager = CLLocationManager()
+    
     var networkWeatherClient = NetworkWeatherClient()
+    lazy var locationManager: CLLocationManager = {
+        let lm = CLLocationManager()
+        lm.delegate = self
+        lm.desiredAccuracy = kCLLocationAccuracyKilometer
+        lm.requestWhenInUseAuthorization()
+        return lm
+    }()
     var menuOut = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        locationManager.requestWhenInUseAuthorization()
         hamburgerView.isHidden = true
         
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
@@ -40,6 +44,7 @@ class ViewController: UIViewController {
                         self.updateInterfaceWith(weather: currentWeather)
                     
                     }
+        
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
         }
@@ -49,9 +54,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hamburgerView.isHidden = true
-        
-        
-        networkWeatherClient.fetchCurrentWeather(forCity: "San Francisco")
         
     }
 

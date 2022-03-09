@@ -20,7 +20,7 @@ class NetworkWeatherClient {
 }
     func fetchCurrentWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
 
-    let urlString = "https://api.openweathermap.org/geo/1.0/reverse?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
+    let urlString = "https: //api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=imperial"
     performFetch(withURLString: urlString)
   
 }
