@@ -36,7 +36,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="vGQ-hP-4mq">
                                                 <rect key="frame" x="0.0" y="0.0" width="186" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfa-4f-Th0">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="tfa-4f-Th0">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="f5a-YN-09C"/>
@@ -213,6 +213,9 @@
                                             <constraint firstAttribute="height" constant="29" id="1an-mM-Eva"/>
                                             <constraint firstAttribute="width" constant="253" id="bHm-57-iOo"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="sliderChanged:" destination="ncZ-y5-p5c" eventType="valueChanged" id="ifO-60-fne"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32ºF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNb-f0-b5g">
                                         <rect key="frame" x="70.5" y="169" width="112" height="52"/>
