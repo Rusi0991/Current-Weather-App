@@ -165,10 +165,25 @@
                     <view key="view" contentMode="scaleToFill" id="tan-3a-jP7">
                         <rect key="frame" x="0.0" y="0.0" width="354" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-ZT-a2j">
+                                <rect key="frame" x="0.0" y="44" width="354" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4OE-tn-Alc"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4OE-tn-Alc" firstAttribute="bottom" secondItem="ndl-ZT-a2j" secondAttribute="bottom" id="4A1-D1-Pla"/>
+                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="leading" secondItem="4OE-tn-Alc" secondAttribute="leading" id="BWO-6n-J49"/>
+                            <constraint firstItem="4OE-tn-Alc" firstAttribute="trailing" secondItem="ndl-ZT-a2j" secondAttribute="trailing" id="FKG-VW-kBz"/>
+                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="top" secondItem="4OE-tn-Alc" secondAttribute="top" id="QzI-r8-ELv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PbB-lB-kwu"/>
+                    <connections>
+                        <outlet property="MyCitiesTableView" destination="ndl-ZT-a2j" id="oVz-ve-ETY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpO-dh-j6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -379,9 +394,6 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
