@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addCityClicked(_:)))
         
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
                         print(currentWeather.cityName)
@@ -102,7 +103,13 @@ class ViewController: UIViewController {
         
     }
     
-
+    @objc func addCityClicked(_ sender: Any) {
+        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
+            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
+            printContent(city)
+            
+        }
+    }
 
                    
     }
