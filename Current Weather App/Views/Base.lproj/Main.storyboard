@@ -167,17 +167,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-ZT-a2j">
-                                <rect key="frame" x="0.0" y="44" width="354" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="354" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" id="ZVN-ry-g4b" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="354" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVN-ry-g4b" id="BkG-r8-0PT">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-WM-asW">
+                                <rect key="frame" x="16" y="831" width="322" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add New City"/>
+                                <connections>
+                                    <action selector="addCityClicked:" destination="Myf-zj-IFb" eventType="touchUpInside" id="mEI-l0-f0J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4OE-tn-Alc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4OE-tn-Alc" firstAttribute="bottom" secondItem="ndl-ZT-a2j" secondAttribute="bottom" id="4A1-D1-Pla"/>
-                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="leading" secondItem="4OE-tn-Alc" secondAttribute="leading" id="BWO-6n-J49"/>
-                            <constraint firstItem="4OE-tn-Alc" firstAttribute="trailing" secondItem="ndl-ZT-a2j" secondAttribute="trailing" id="FKG-VW-kBz"/>
-                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="top" secondItem="4OE-tn-Alc" secondAttribute="top" id="QzI-r8-ELv"/>
+                            <constraint firstItem="QJF-WM-asW" firstAttribute="top" secondItem="ndl-ZT-a2j" secondAttribute="bottom" constant="8" symbolic="YES" id="AXa-0q-TYT"/>
+                            <constraint firstItem="4OE-tn-Alc" firstAttribute="trailing" secondItem="QJF-WM-asW" secondAttribute="trailing" constant="16" id="R8c-CR-asv"/>
+                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="leading" secondItem="4OE-tn-Alc" secondAttribute="leading" id="Wrh-wE-25A"/>
+                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="top" secondItem="4OE-tn-Alc" secondAttribute="top" id="Ynq-G1-QKK"/>
+                            <constraint firstItem="ndl-ZT-a2j" firstAttribute="trailing" secondItem="4OE-tn-Alc" secondAttribute="trailing" id="a1s-7Z-4dQ"/>
+                            <constraint firstItem="QJF-WM-asW" firstAttribute="leading" secondItem="4OE-tn-Alc" secondAttribute="leading" constant="16" id="ntN-6n-epS"/>
+                            <constraint firstItem="QJF-WM-asW" firstAttribute="bottom" secondItem="4OE-tn-Alc" secondAttribute="bottom" id="rKZ-hw-o5W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PbB-lB-kwu"/>
@@ -187,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpO-dh-j6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258" y="950"/>
+            <point key="canvasLocation" x="1257.9710144927537" y="949.55357142857133"/>
         </scene>
         <!--Converter View Controller-->
         <scene sceneID="t6E-l3-n4g">

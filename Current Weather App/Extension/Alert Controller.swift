@@ -28,7 +28,7 @@ extension ViewController{
         present(ac, animated: true, completion: nil)
 }
 }
-extension ViewController{
+extension MyCitiesViewController{
     func presentAddAlertController(title : String?, message : String?, style: UIAlertController.Style, completionHandler: @escaping (String) -> Void){
         let ac = UIAlertController(title: title, message: message, preferredStyle: style)
         ac.addTextField { tf in

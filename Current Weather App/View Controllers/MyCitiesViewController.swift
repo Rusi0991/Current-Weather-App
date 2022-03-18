@@ -15,18 +15,18 @@ var networkWeatherClient = NetworkWeatherClient()
     @IBOutlet weak var backButton: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addCityClicked(_:)))
-        
+        MyCitiesTableView.delegate = self
+        MyCitiesTableView.dataSource = self
        
     }
     
-//    @objc func addCityClicked(_ sender: Any) {
-//        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
-//            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
-//            printContent(city)
-//
-//        }
-//    }
+    @IBAction func addCityClicked(_ sender: Any) {
+        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
+            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
+            print(city)
+
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
