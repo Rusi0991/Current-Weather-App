@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     }
     @IBAction func seacrhButtonTapped(_ sender: Any) {
         self.presentSearchAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
-            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
+            self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
             
         }
     
@@ -112,7 +112,7 @@ extension ViewController : CLLocationManagerDelegate{
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-        networkWeatherClient.fetchCurrentWeatherFromLocation(latitude: latitude, longitude: longitude)
+        networkWeatherClient.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

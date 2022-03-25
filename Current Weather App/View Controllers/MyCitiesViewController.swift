@@ -22,7 +22,7 @@ var networkWeatherClient = NetworkWeatherClient()
     
     @IBAction func addCityClicked(_ sender: Any) {
         self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
-            self.networkWeatherClient.fetchCurrentWeather(forCity: city)
+            self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
             print(city)
 
         }

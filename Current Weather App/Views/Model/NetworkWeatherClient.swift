@@ -10,20 +10,26 @@ import CoreLocation
 
 class NetworkWeatherClient {
     
+    enum RequestType {
+        case cityName(city: String)
+        case coordinate(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+    }
+    
     var onCompletion : ((CurrentWeather) -> Void)?
     
-    func fetchCurrentWeather(forCity city : String){
-
-    let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=imperial"
-    
-   performFetch(withURLString: urlString)
-}
-    func fetchCurrentWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
-
-    let urlString = "https: //api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=imperial"
-    performFetch(withURLString: urlString)
+    func fetchCurrentWeather(forRequestType requestType: RequestType) {
+        var urlString = ""
+        switch requestType {
+        case .cityName(let city):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=imperial"
+            
+        case .coordinate(let latitude, let longitude):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&apikey=\(apiKey)&units=imperial"
+        }
+        performFetch(withURLString: urlString)
+    }
   
-}
+
    fileprivate func performFetch(withURLString urlString : String){
         guard let url = URL(string: urlString) else {return}
     let session = URLSession(configuration: .default)
