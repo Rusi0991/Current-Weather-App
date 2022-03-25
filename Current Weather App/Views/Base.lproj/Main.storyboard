@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iDk-Oe-eDJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Myf-zj-IFb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -166,20 +166,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="354" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-ZT-a2j">
-                                <rect key="frame" x="0.0" y="44" width="354" height="779"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" id="ZVN-ry-g4b" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="354" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVN-ry-g4b" id="BkG-r8-0PT">
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-WM-asW">
                                 <rect key="frame" x="16" y="831" width="322" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -188,6 +174,78 @@
                                     <action selector="addCityClicked:" destination="Myf-zj-IFb" eventType="touchUpInside" id="mEI-l0-f0J"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-ZT-a2j">
+                                <rect key="frame" x="0.0" y="44" width="354" height="779"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="CUI-Sh-YU4">
+                                    <rect key="frame" x="0.0" y="0.0" width="354" height="89"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" rowHeight="90" id="ZVN-ry-g4b" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVN-ry-g4b" id="BkG-r8-0PT">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="89"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gpy-Rr-GDE">
+                                                        <rect key="frame" x="27" y="0.0" width="88" height="89"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DAi-JH-zWx">
+                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="89"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="88" id="JMI-dQ-tdC"/>
+                                                                    <constraint firstAttribute="height" constant="89" id="lhT-xR-dBx"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="DAi-JH-zWx" secondAttribute="bottom" id="6Px-QO-H07"/>
+                                                            <constraint firstItem="DAi-JH-zWx" firstAttribute="top" secondItem="Gpy-Rr-GDE" secondAttribute="top" id="J41-gQ-tzs"/>
+                                                            <constraint firstAttribute="trailing" secondItem="DAi-JH-zWx" secondAttribute="trailing" id="JfC-PW-HU3"/>
+                                                            <constraint firstItem="DAi-JH-zWx" firstAttribute="leading" secondItem="Gpy-Rr-GDE" secondAttribute="leading" id="jVY-jA-wxd"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-B0-fvD">
+                                                        <rect key="frame" x="123" y="0.0" width="223" height="89"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpF-Pl-Epd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="223" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="3me-HX-IQ9"/>
+                                                                    <constraint firstAttribute="width" constant="223" id="7JL-bO-SJQ"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68 º F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Bg-UED">
+                                                                <rect key="frame" x="0.0" y="40" width="223" height="49"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="223" id="GPK-dc-7Oz"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="o6h-9I-x4J"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="g8w-B0-fvD" secondAttribute="trailing" constant="8" id="ER1-v6-sff"/>
+                                                    <constraint firstAttribute="bottom" secondItem="g8w-B0-fvD" secondAttribute="bottom" id="IyW-T5-LyH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Gpy-Rr-GDE" secondAttribute="bottom" id="M2l-py-koh"/>
+                                                    <constraint firstItem="Gpy-Rr-GDE" firstAttribute="leading" secondItem="BkG-r8-0PT" secondAttribute="leading" constant="27" id="RzA-Gs-0Te"/>
+                                                    <constraint firstItem="g8w-B0-fvD" firstAttribute="leading" secondItem="Gpy-Rr-GDE" secondAttribute="trailing" constant="8" id="gyG-Tc-Prw"/>
+                                                    <constraint firstItem="g8w-B0-fvD" firstAttribute="top" secondItem="BkG-r8-0PT" secondAttribute="top" id="s9t-sx-EF1"/>
+                                                    <constraint firstItem="Gpy-Rr-GDE" firstAttribute="top" secondItem="BkG-r8-0PT" secondAttribute="top" id="taE-R2-ZTl"/>
+                                                </constraints>
+                                            </tableViewCellContentView>
+                                        </tableViewCell>
+                                    </subviews>
+                                </stackView>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4OE-tn-Alc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
