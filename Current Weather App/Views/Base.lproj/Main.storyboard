@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Myf-zj-IFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iDk-Oe-eDJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -184,7 +184,7 @@
                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" rowHeight="90" id="ZVN-ry-g4b" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="354" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVN-ry-g4b" id="BkG-r8-0PT">
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVN-ry-g4b" id="BkG-r8-0PT" customClass="UITableViewCell" customModule="Current_Weather_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="89"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
@@ -206,26 +206,18 @@
                                                             <constraint firstItem="DAi-JH-zWx" firstAttribute="leading" secondItem="Gpy-Rr-GDE" secondAttribute="leading" id="jVY-jA-wxd"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-B0-fvD">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-B0-fvD">
                                                         <rect key="frame" x="123" y="0.0" width="223" height="89"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpF-Pl-Epd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="223" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="3me-HX-IQ9"/>
-                                                                    <constraint firstAttribute="width" constant="223" id="7JL-bO-SJQ"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="0.0" width="223" height="44.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68 º F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Bg-UED">
-                                                                <rect key="frame" x="0.0" y="40" width="223" height="49"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="223" id="GPK-dc-7Oz"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="o6h-9I-x4J"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="223" height="44.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -242,6 +234,11 @@
                                                     <constraint firstItem="Gpy-Rr-GDE" firstAttribute="top" secondItem="BkG-r8-0PT" secondAttribute="top" id="taE-R2-ZTl"/>
                                                 </constraints>
                                             </tableViewCellContentView>
+                                            <connections>
+                                                <outlet property="IconImageView" destination="DAi-JH-zWx" id="qg1-P1-8ON"/>
+                                                <outlet property="cityLabel" destination="tpF-Pl-Epd" id="FMj-FB-qpg"/>
+                                                <outlet property="temperatureLabel" destination="nE5-Bg-UED" id="YEd-kI-LBO"/>
+                                            </connections>
                                         </tableViewCell>
                                     </subviews>
                                 </stackView>

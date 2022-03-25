@@ -2,11 +2,17 @@
 //  MyCitiesCell.swift
 //  Current Weather App
 //
-//  Created by Ruslan Ismayilov on 3/16/22.
+//  Created by Ruslan Ismayilov on 3/24/22.
 //
 
 import Foundation
 import UIKit
-class MyCitiesCell : UITableViewCell{
+
+class MyCitiesCell: UITableViewCell {
+    @IBOutlet weak var IconImageView: UIImageView!
     
+    @IBOutlet weak var temperatureLabel: UILabel!
+   
+    
+    @IBOutlet weak var cityLabel: UILabel!
 }

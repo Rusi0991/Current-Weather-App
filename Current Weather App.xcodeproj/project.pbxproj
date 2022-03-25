@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57320D9D27E2AC1200B2FF3A /* MyCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57320D9C27E2AC1200B2FF3A /* MyCitiesCell.swift */; };
+		57320DA127ED81A500B2FF3A /* MyCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57320DA027ED81A500B2FF3A /* MyCitiesCell.swift */; };
 		5749161227C8459D000AF1B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749161127C8459D000AF1B9 /* AppDelegate.swift */; };
 		5749161427C8459D000AF1B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749161327C8459D000AF1B9 /* SceneDelegate.swift */; };
 		5749161627C8459D000AF1B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749161527C8459D000AF1B9 /* ViewController.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57320D9C27E2AC1200B2FF3A /* MyCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesCell.swift; sourceTree = "<group>"; };
+		57320DA027ED81A500B2FF3A /* MyCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesCell.swift; sourceTree = "<group>"; };
 		5749160E27C8459D000AF1B9 /* Current Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Current Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5749161127C8459D000AF1B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5749161327C8459D000AF1B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */,
+				57320DA027ED81A500B2FF3A /* MyCitiesCell.swift */,
 				5749163A27CEE20A000AF1B9 /* CurrentWeatherResponses.swift */,
-				57320D9C27E2AC1200B2FF3A /* MyCitiesCell.swift */,
 				5749163C27CEF170000AF1B9 /* CurrentWeather.swift */,
 			);
 			path = Model;
@@ -205,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57320D9D27E2AC1200B2FF3A /* MyCitiesCell.swift in Sources */,
+				57320DA127ED81A500B2FF3A /* MyCitiesCell.swift in Sources */,
 				5749162C27C9AA4B000AF1B9 /* MyCitiesViewController.swift in Sources */,
 				5749161627C8459D000AF1B9 /* ViewController.swift in Sources */,
 				5749163727CDA3A7000AF1B9 /* NetworkWeatherClient.swift in Sources */,

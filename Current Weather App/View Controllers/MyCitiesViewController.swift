@@ -39,7 +39,11 @@ var networkWeatherClient = NetworkWeatherClient()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
-        cell.textLabel?.text = "Test"
+        
+//        Configure cell
+        cell.IconImageView.image = UIImage(named: "image")
+        cell.temperatureLabel.text = "68 ºF"
+        cell.cityLabel.text = "San Francisco"
         return cell
     }
 
