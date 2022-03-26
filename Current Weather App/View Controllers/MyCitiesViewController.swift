@@ -17,7 +17,7 @@ var networkWeatherClient = NetworkWeatherClient()
         super.viewDidLoad()
         MyCitiesTableView.delegate = self
         MyCitiesTableView.dataSource = self
-       
+//        MyCitiesTableView.register(MyCitiesCell.self, forCellReuseIdentifier: "MyCitiesCell")
     }
     
     @IBAction func addCityClicked(_ sender: Any) {
@@ -41,7 +41,7 @@ var networkWeatherClient = NetworkWeatherClient()
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
         
 //        Configure cell
-        cell.IconImageView.image = UIImage(named: "image")
+        cell.iconImageView.image = UIImage(named: "Image")
         cell.temperatureLabel.text = "68 ºF"
         cell.cityLabel.text = "San Francisco"
         return cell
