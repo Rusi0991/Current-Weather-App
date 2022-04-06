@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+
 struct CurrentWeather{
     let cityName : String
     let temperature : Double
