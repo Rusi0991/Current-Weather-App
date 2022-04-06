@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
-class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-    
-var networkWeatherClient = NetworkWeatherClient()
+    var dataController : DataController!
+    var networkWeatherClient = NetworkWeatherClient()
     var cellObjects = MyCitiesCell()
+    var myCities : MyCities!
+    var fetchedResultsController : NSFetchedResultsController<MyCities>!
+    
+    
     @IBOutlet weak var MyCitiesTableView: UITableView!
     @IBOutlet weak var backButton: UINavigationItem!
     override func viewDidLoad() {
@@ -67,6 +72,21 @@ var networkWeatherClient = NetworkWeatherClient()
             
             self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
             
+        }
+        
+    }
+    
+    func setUpFetchResultController(){
+        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch  {
+            fatalError("The fetch could not be performed\(error.localizedDescription)")
         }
         
     }
