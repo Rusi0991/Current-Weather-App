@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 
 class MyCitiesCell: UITableViewCell {
-    @IBOutlet weak var iconImageView: UIImageView!
-    
-    @IBOutlet weak var temperatureLabel: UILabel!
-   
     
     @IBOutlet weak var cityLabel: UILabel!
 }

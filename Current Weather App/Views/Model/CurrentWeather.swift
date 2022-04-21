@@ -7,9 +7,12 @@
 
 import Foundation
 
+struct weathers {
+    var weathers = [CurrentWeather]()
+}
 
 struct CurrentWeather{
-    let cityName : String
+    var cityName : String
     let temperature : Double
 //    because label has string in it
     var temperatureString : String{

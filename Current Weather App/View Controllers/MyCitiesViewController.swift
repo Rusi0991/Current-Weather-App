@@ -28,10 +28,11 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        setUpFetchResultController()
         self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
             print(currentWeather.cityName)
             guard let self = self else {return}
-            self.updateInterfaceWith(weather: currentWeather)
+          
         
         }
     }
@@ -40,55 +41,70 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
             self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
             
+           
+            
             print(city)
 
         }
     }
     
+    func addCity(currentWeather : CurrentWeather){
+        let city = MyCities(context: dataController.viewContext)
+        city.cityName = currentWeather.cityName
+        city.temperature = currentWeather.temperature
+        city.conditionCode = Int16(currentWeather.conditionCode)
+        do{
+           try dataController.viewContext.save()
+            
+        }catch{
+            fatalError(error.localizedDescription)
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
+//        return fetchedResultsController.sections?.count ?? 1
         return 1
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+//        setUpFetchResultController()
+//        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
         
-//        Configure cell
-//        cell.iconImageView.image = UIImage(named: "Image")
-//        cell.temperatureLabel.text = "68 ºF"
-//        cell.cityLabel.text = "San Francisco"
+      
         return cell
     }
     
-    func updateInterfaceWith(weather : CurrentWeather){
-        DispatchQueue.main.async {
-            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
-            self.cellObjects.cityLabel.text = weather.cityName
-            self.cellObjects.temperatureLabel.text = weather.temperatureString
-            
-            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
-            
-        }
-        
-    }
+//    func updateInterfaceWith(weather : CurrentWeather){
+//        DispatchQueue.main.async {
+//            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
+//            self.cellObjects.cityLabel.text = weather.cityName
+//            self.cellObjects.temperatureLabel.text = weather.temperatureString
+//
+//            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
+//
+//        }
+//
+//    }
     
-    func setUpFetchResultController(){
-        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
-        
-        do {
-            try fetchedResultsController.performFetch()
-        } catch  {
-            fatalError("The fetch could not be performed\(error.localizedDescription)")
-        }
-        
-    }
+//    func setUpFetchResultController(){
+//        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//        fetchedResultsController.delegate = self
+//
+//        do {
+//            try fetchedResultsController.performFetch()
+//        } catch  {
+//            fatalError("The fetch could not be performed\(error.localizedDescription)")
+//        }
+//
+//    }
 
 }
