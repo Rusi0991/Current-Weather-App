@@ -104,6 +104,17 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle : UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            weatherLocations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let itemToMove = weatherLocations[sourceIndexPath.row]
+        weatherLocations.remove(at: sourceIndexPath.row)
+        weatherLocations.insert(itemToMove, at: destinationIndexPath.row)
+    }
 //    func updateInterfaceWith(weather : CurrentWeather){
 //        DispatchQueue.main.async {
 //            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
@@ -132,3 +143,4 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 //    }
 
 }
+
