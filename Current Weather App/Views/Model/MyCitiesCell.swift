@@ -10,5 +10,4 @@ import UIKit
 
 class MyCitiesCell: UITableViewCell {
     
-    @IBOutlet weak var cityLabel: UILabel!
 }

@@ -10,6 +10,7 @@ import CoreData
 
 class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
+    var weatherLocations : [WeatherLocation] = []
     var dataController : DataController!
     var networkWeatherClient = NetworkWeatherClient()
     var cellObjects = MyCitiesCell()
@@ -17,12 +18,22 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     var fetchedResultsController : NSFetchedResultsController<MyCities>!
     
     
-    @IBOutlet weak var MyCitiesTableView: UITableView!
+    @IBOutlet weak var myCitiesTableView: UITableView!
+    
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    @IBOutlet weak var addCityBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var backButton: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyCitiesTableView.delegate = self
-        MyCitiesTableView.dataSource = self
+        myCitiesTableView.delegate = self
+        myCitiesTableView.dataSource = self
+        var weatherLocation = WeatherLocation(name: "Fremont , CA", latitude: 0, longitude: 0)
+        weatherLocations.append(weatherLocation)
+        weatherLocation = WeatherLocation(name: "Istanbul , Turkey", latitude: 0, longitude: 0)
+        weatherLocations.append(weatherLocation)
+        weatherLocation = WeatherLocation(name: "Paris , France", latitude: 0, longitude: 0)
+        weatherLocations.append(weatherLocation)
 //        MyCitiesTableView.register(MyCitiesCell.self, forCellReuseIdentifier: "MyCitiesCell")
     }
     
@@ -37,7 +48,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @IBAction func addCityClicked(_ sender: Any) {
+    @IBAction func addCityPressed(_ sender: UIBarButtonItem) {
         self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
             self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
             
@@ -47,6 +58,19 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 
         }
     }
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if myCitiesTableView.isEditing{
+            myCitiesTableView.setEditing(false, animated: true)
+            sender.title = "Edit"
+            addCityBarButton.isEnabled = true
+        } else {
+            myCitiesTableView.setEditing(true, animated: true)
+            sender.title = "Done"
+            addCityBarButton.isEnabled = false
+        }
+    }
+    
     
     func addCity(currentWeather : CurrentWeather){
         let city = MyCities(context: dataController.viewContext)
@@ -70,12 +94,12 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        setUpFetchResultController()
 //        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        return 1
+        return weatherLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
-        
+        cell.textLabel?.text = weatherLocations[indexPath.row].name
       
         return cell
     }
