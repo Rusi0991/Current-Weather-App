@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GooglePlaces
 import CoreData
 
 class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
@@ -47,17 +48,25 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         
         }
     }
-    
-    @IBAction func addCityPressed(_ sender: UIBarButtonItem) {
-        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
-            self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
-            
-           
-            
-            print(city)
+    @IBAction func addCityPressed(_ sender: Any) {
+        let autocompleteController = GMSAutocompleteViewController()
+           autocompleteController.delegate = self
 
-        }
+
+
+           // Display the autocomplete view controller.
+           present(autocompleteController, animated: true, completion: nil)
     }
+    
+//    @IBAction func addCityPressed1(_ sender: UIBarButtonItem) {
+
+////        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
+////            self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
+
+////            print(city)
+////
+////        }
+//    }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if myCitiesTableView.isEditing{
@@ -100,7 +109,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
         cell.textLabel?.text = weatherLocations[indexPath.row].name
-      
+        cell.detailTextLabel?.text = "lat :\(weatherLocations[indexPath.row].latitude), long :\(weatherLocations[indexPath.row].longitude)"
         return cell
     }
     
