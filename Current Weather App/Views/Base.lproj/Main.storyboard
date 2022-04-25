@@ -170,7 +170,7 @@
                                 <rect key="frame" x="0.0" y="44" width="354" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" id="CiR-jI-0sX" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCitiesCell" id="CiR-jI-0sX" customClass="MyCitiesCell" customModule="Current_Weather_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="354" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CiR-jI-0sX" id="uhF-2J-294">

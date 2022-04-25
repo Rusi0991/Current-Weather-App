@@ -73,16 +73,16 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     func addCity(currentWeather : CurrentWeather){
-        let city = MyCities(context: dataController.viewContext)
-        city.cityName = currentWeather.cityName
-        city.temperature = currentWeather.temperature
-        city.conditionCode = Int16(currentWeather.conditionCode)
-        do{
-           try dataController.viewContext.save()
-            
-        }catch{
-            fatalError(error.localizedDescription)
-        }
+//        let city = MyCities(context: dataController.viewContext)
+//        city.cityName = currentWeather.cityName
+//        city.temperature = currentWeather.temperature
+//        city.conditionCode = Int16(currentWeather.conditionCode)
+//        do{
+//           try dataController.viewContext.save()
+//
+//        }catch{
+//            fatalError(error.localizedDescription)
+//        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
