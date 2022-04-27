@@ -13,9 +13,6 @@ class ViewController: UIViewController {
 //    @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var hamburgerView: UIView!
-    
-    @IBOutlet weak var hamburgerViewLeadingC: NSLayoutConstraint!
-    @IBOutlet weak var hamburgerViewTrailingC: NSLayoutConstraint!
     @IBOutlet weak var weatherIconImageView: UIImageView!
     
     @IBOutlet weak var temperatureLabel: UILabel!

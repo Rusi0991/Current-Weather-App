@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct weathers {
-    var weathers = [CurrentWeather]()
-}
-
 struct CurrentWeather{
     var cityName : String
     let temperature : Double
