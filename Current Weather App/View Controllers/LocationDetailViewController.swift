@@ -10,16 +10,25 @@ import UIKit
 class LocationDetailViewController: UIViewController {
 
     @IBOutlet weak var weatherIconImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var cityLabel: UILabel!
-    
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    
+    var weatherLocation : WeatherLocation!
+    var weatherLocations : [WeatherLocation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if weatherLocation == nil{
+            weatherLocation = WeatherLocation(name: "Current Loaction", latitude: 0.0, longitude: 0.0)
+            weatherLocations.append(weatherLocation)
+        }
+        updateInterfaceWith()
     }
-    
+    func updateInterfaceWith(){
+        
+        self.cityLabel.text = ""
+        self.temperatureLabel.text = ""
+        self.feelsLikeTemperatureLabel.text = ""
+    }
 
 }

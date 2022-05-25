@@ -24,17 +24,17 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var addCityBarButton: UIBarButtonItem!
     
-    @IBOutlet weak var backButton: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myCitiesTableView.delegate = self
         myCitiesTableView.dataSource = self
-        var weatherLocation = WeatherLocation(name: "Fremont , CA", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        weatherLocation = WeatherLocation(name: "Istanbul , Turkey", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        weatherLocation = WeatherLocation(name: "Paris , France", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
+//        var weatherLocation = WeatherLocation(name: "Fremont , CA", latitude: 0, longitude: 0)
+//        weatherLocations.append(weatherLocation)
+//        weatherLocation = WeatherLocation(name: "Istanbul , Turkey", latitude: 0, longitude: 0)
+//        weatherLocations.append(weatherLocation)
+//        weatherLocation = WeatherLocation(name: "Paris , France", latitude: 0, longitude: 0)
+//        weatherLocations.append(weatherLocation)
 //        MyCitiesTableView.register(MyCitiesCell.self, forCellReuseIdentifier: "MyCitiesCell")
     }
     
@@ -150,6 +150,15 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 //        }
 //
 //    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! LocationDetailViewController
+        destination.weatherLocations = weatherLocations
+    }
+    
+    @IBAction func unwindFromMyCitiesViewController(){
+        
+    }
 
 }
 
