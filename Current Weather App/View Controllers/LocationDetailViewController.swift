@@ -26,9 +26,9 @@ class LocationDetailViewController: UIViewController {
     }
     func updateInterfaceWith(){
         
-        self.cityLabel.text = ""
-        self.temperatureLabel.text = ""
-        self.feelsLikeTemperatureLabel.text = ""
+        self.cityLabel.text = "New York"
+        self.temperatureLabel.text = "66ºF"
+        self.feelsLikeTemperatureLabel.text = "64ºF"
     }
 
 }

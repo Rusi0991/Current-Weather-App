@@ -10,7 +10,7 @@ import GooglePlaces
 import CoreData
 
 class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
-    
+    var weatherLocation : WeatherLocation!
     var weatherLocations : [WeatherLocation] = []
     var dataController : DataController!
     var networkWeatherClient = NetworkWeatherClient()
@@ -29,6 +29,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         myCitiesTableView.delegate = self
         myCitiesTableView.dataSource = self
+
 //        var weatherLocation = WeatherLocation(name: "Fremont , CA", latitude: 0, longitude: 0)
 //        weatherLocations.append(weatherLocation)
 //        weatherLocation = WeatherLocation(name: "Istanbul , Turkey", latitude: 0, longitude: 0)
@@ -150,15 +151,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 //        }
 //
 //    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! LocationDetailViewController
-        destination.weatherLocations = weatherLocations
-    }
-    
-    @IBAction func unwindFromMyCitiesViewController(){
-        
-    }
+
 
 }
 
