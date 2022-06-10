@@ -13,22 +13,51 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    var networkWeatherClient = NetworkWeatherClient()
     
     var weatherLocation : WeatherLocation!
     var weatherLocations : [WeatherLocation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        if weatherLocation == nil{
-            weatherLocation = WeatherLocation(name: "Current Loaction", latitude: 0.0, longitude: 0.0)
-            weatherLocations.append(weatherLocation)
-        }
-        updateInterfaceWith()
-    }
-    func updateInterfaceWith(){
         
-        self.cityLabel.text = "New York"
-        self.temperatureLabel.text = "66ºF"
-        self.feelsLikeTemperatureLabel.text = "64ºF"
+        self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: weatherLocation.name))
+        
+        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
+            print(currentWeather.cityName)
+            guard let self = self else {return}
+            self.updateInterfaceWith(weather: currentWeather)
+
+        }
+//        if weatherLocation == nil{
+//            weatherLocation = WeatherLocation(name: "Current Location", latitude: 0.0, longitude: 0.0)
+//            weatherLocations.append(weatherLocation)
+//        }
+        
+        
     }
+    
+    func updateInterfaceWith(weather : CurrentWeather){
+        DispatchQueue.main.async {
+            
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.temperatureString
+            self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
+            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
+            
+        }
+        
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destination = segue.destination as! MyCitiesViewController
+//        destination.weatherLocations = weatherLocations
+//    }
+//
+//  @IBAction func unwindSegueFromLocationListVC(segue : UIStoryboardSegue){
+//      let source = segue.source as! MyCitiesViewController
+//      weatherLocations = source.weatherLocations
+//      weatherLocation = weatherLocations[source.selectedLocationIndex]
+//      updateInterfaceWith()
+//    }
 
 }

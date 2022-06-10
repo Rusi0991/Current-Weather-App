@@ -10,7 +10,6 @@ import CoreLocation
 
 
 class ViewController: UIViewController {
-//    @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var hamburgerView: UIView!
     @IBOutlet weak var weatherIconImageView: UIImageView!

@@ -30,24 +30,19 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         myCitiesTableView.delegate = self
         myCitiesTableView.dataSource = self
 
-//        var weatherLocation = WeatherLocation(name: "Fremont , CA", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
-//        weatherLocation = WeatherLocation(name: "Istanbul , Turkey", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
-//        weatherLocation = WeatherLocation(name: "Paris , France", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
-//        MyCitiesTableView.register(MyCitiesCell.self, forCellReuseIdentifier: "MyCitiesCell")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        myCitiesTableView.reloadData()
 //        setUpFetchResultController()
-        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
-            print(currentWeather.cityName)
-            guard let self = self else {return}
-          
-        
-        }
+//        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
+//            print(currentWeather.cityName)
+//            guard let self = self else {return}
+//
+//
+//        }
     }
     @IBAction func addCityPressed(_ sender: Any) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -57,6 +52,13 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 
            // Display the autocomplete view controller.
            present(autocompleteController, animated: true, completion: nil)
+        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
+            print(currentWeather.cityName)
+            guard let self = self else {return}
+            
+        
+        }
+        
     }
     
 //    @IBAction func addCityPressed1(_ sender: UIBarButtonItem) {
@@ -82,18 +84,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    func addCity(currentWeather : CurrentWeather){
-//        let city = MyCities(context: dataController.viewContext)
-//        city.cityName = currentWeather.cityName
-//        city.temperature = currentWeather.temperature
-//        city.conditionCode = Int16(currentWeather.conditionCode)
-//        do{
-//           try dataController.viewContext.save()
-//
-//        }catch{
-//            fatalError(error.localizedDescription)
-//        }
-    }
+  
     
     func numberOfSections(in tableView: UITableView) -> Int {
 //        return fetchedResultsController.sections?.count ?? 1
@@ -125,17 +116,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         weatherLocations.remove(at: sourceIndexPath.row)
         weatherLocations.insert(itemToMove, at: destinationIndexPath.row)
     }
-//    func updateInterfaceWith(weather : CurrentWeather){
-//        DispatchQueue.main.async {
-//            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
-//            self.cellObjects.cityLabel.text = weather.cityName
-//            self.cellObjects.temperatureLabel.text = weather.temperatureString
-//
-//            self.cellObjects.iconImageView.image = UIImage(systemName: weather.systemIconNameString)
-//
-//        }
-//
-//    }
+
     
 //    func setUpFetchResultController(){
 //        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
@@ -152,6 +133,19 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 //
 //    }
 
-
+    
+    func weatherLocation(at indexPath: IndexPath) -> WeatherLocation {
+        return weatherLocations[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? LocationDetailViewController{
+            if let indexPath = myCitiesTableView.indexPathForSelectedRow{
+                vc.weatherLocation = weatherLocation(at: indexPath)
+                
+               
+            }
+        }
+    }
 }
 
