@@ -11,7 +11,6 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
 
   // Handle the user's selection.
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-   
       
       let newLocation = WeatherLocation(name: place.name ?? "unknown place", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
       weatherLocations.append(newLocation)
@@ -37,5 +36,6 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
   func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
   }
+
 
 }

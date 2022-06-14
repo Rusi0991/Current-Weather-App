@@ -19,9 +19,9 @@ class LocationDetailViewController: UIViewController {
     var weatherLocations : [WeatherLocation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: weatherLocation.name))
-        
+        let city = weatherLocation.name.split(separator: " ").joined(separator: "%20")
+        self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
+
         self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
             print(currentWeather.cityName)
             guard let self = self else {return}
