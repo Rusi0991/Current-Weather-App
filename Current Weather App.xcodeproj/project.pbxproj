@@ -137,9 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				5749161127C8459D000AF1B9 /* AppDelegate.swift */,
+				5749161327C8459D000AF1B9 /* SceneDelegate.swift */,
 				57ACAB752816F00B006B6FBA /* APIkeys.swift */,
 				5749163827CDA694000AF1B9 /* Constants.swift */,
-				5749161327C8459D000AF1B9 /* SceneDelegate.swift */,
 				5749161A27C8459F000AF1B9 /* Assets.xcassets */,
 				5749161F27C8459F000AF1B9 /* Info.plist */,
 			);
@@ -161,7 +161,6 @@
 				5749163627CDA3A7000AF1B9 /* NetworkWeatherClient.swift */,
 				57320DA027ED81A500B2FF3A /* MyCitiesCell.swift */,
 				5749163A27CEE20A000AF1B9 /* CurrentWeatherResponses.swift */,
-				5749163C27CEF170000AF1B9 /* CurrentWeather.swift */,
 				57ECBF2F281138F5005670BE /* WeatherLocation.swift */,
 			);
 			path = Model;
@@ -171,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				57C9CCD327FD0DD100A53940 /* CurrentWeather.xcdatamodeld */,
+				5749163C27CEF170000AF1B9 /* CurrentWeather.swift */,
 				57C9CCD627FD11F200A53940 /* DataController.swift */,
 			);
 			path = DataModel;

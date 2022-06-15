@@ -14,7 +14,6 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     var weatherLocations : [WeatherLocation] = []
     var dataController : DataController!
     var networkWeatherClient = NetworkWeatherClient()
-    var cellObjects = MyCitiesCell()
     var myCities : MyCities!
     var fetchedResultsController : NSFetchedResultsController<MyCities>!
     
@@ -29,7 +28,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         myCitiesTableView.delegate = self
         myCitiesTableView.dataSource = self
-
+       
 
     }
     
@@ -49,12 +48,14 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
            autocompleteController.delegate = self
 
 
-
+        
            // Display the autocomplete view controller.
            present(autocompleteController, animated: true, completion: nil)
         self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
             print(currentWeather.cityName)
             guard let self = self else {return}
+            
+            
             
         
         }
@@ -118,20 +119,20 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     
-//    func setUpFetchResultController(){
-//        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
-//        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch  {
-//            fatalError("The fetch could not be performed\(error.localizedDescription)")
-//        }
-//
-//    }
+    func setUpFetchResultController(){
+        let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch  {
+            fatalError("The fetch could not be performed\(error.localizedDescription)")
+        }
+
+    }
 
     
     func weatherLocation(at indexPath: IndexPath) -> WeatherLocation {

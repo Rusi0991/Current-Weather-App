@@ -12,8 +12,19 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
   // Handle the user's selection.
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
       
-      let newLocation = WeatherLocation(name: place.name ?? "unknown place", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-      weatherLocations.append(newLocation)
+//      let newLocation = WeatherLocation(name: place.name ?? "unknown place", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+      let myCities = MyCities(context: dataController.viewContext)
+      myCities.cityName = place.name ?? "unknown place"
+      myCities.longitude = place.coordinate.longitude
+      myCities.latitude = place.coordinate.latitude
+      myCities.creationDate = Date()
+          
+      do{
+          try dataController?.viewContext.save()
+      }catch{
+          fatalError("Unable to  save data\(error.localizedDescription)")
+      }
+      
       myCitiesTableView.reloadData()
     dismiss(animated: true, completion: nil)
   }
