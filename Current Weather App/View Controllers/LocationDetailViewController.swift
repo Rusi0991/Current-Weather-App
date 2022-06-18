@@ -6,21 +6,24 @@
 //
 
 import UIKit
+import CoreData
 
-class LocationDetailViewController: UIViewController {
+class LocationDetailViewController: UIViewController, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     var networkWeatherClient = NetworkWeatherClient()
-    
+    var dataController : DataController!
     var weatherLocation : WeatherLocation!
     var weatherLocations : [WeatherLocation] = []
+    var myCities: MyCities!
+    var fetchedResultsController : NSFetchedResultsController<MyCities>!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let city = weatherLocation.name.split(separator: " ").joined(separator: "%20")
-        self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
+        let city = myCities.cityName?.split(separator: " ").joined(separator: "%20")
+        self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city!))
 
         self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
             print(currentWeather.cityName)

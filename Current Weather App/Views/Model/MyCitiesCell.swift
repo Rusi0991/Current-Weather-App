@@ -9,5 +9,12 @@ import Foundation
 import UIKit
 
 class MyCitiesCell: UITableViewCell {
+//    @IBOutlet weak var cityLabel: UILabel!
     
+
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        cityLabel.text = nil
+////        pageCountLabel.text = nil
+//    }
 }

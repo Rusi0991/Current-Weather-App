@@ -9,7 +9,7 @@ import UIKit
 import GooglePlaces
 import CoreData
 
-class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var weatherLocation : WeatherLocation!
     var weatherLocations : [WeatherLocation] = []
     var dataController : DataController!
@@ -28,14 +28,20 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         myCitiesTableView.delegate = self
         myCitiesTableView.dataSource = self
-       
+        if let indexPath = myCitiesTableView.indexPathForSelectedRow {
+            myCitiesTableView.deselectRow(at: indexPath, animated: false)
+            myCitiesTableView.reloadRows(at: [indexPath], with: .fade)
+            
+        }
+        
+       setUpFetchResultController()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCitiesTableView.reloadData()
-//        setUpFetchResultController()
+        setUpFetchResultController()
 //        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
 //            print(currentWeather.cityName)
 //            guard let self = self else {return}
@@ -88,21 +94,29 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
   
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return fetchedResultsController.sections?.count ?? 1
-        return 1
+        
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        } else {
+            return 1
+        }
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        setUpFetchResultController()
 //        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        return weatherLocations.count
+         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let aCity = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
-        cell.textLabel?.text = weatherLocations[indexPath.row].name
-        cell.detailTextLabel?.text = "lat :\(weatherLocations[indexPath.row].latitude), long :\(weatherLocations[indexPath.row].longitude)"
+        cell.textLabel?.text = aCity.cityName
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        
+//        cell.textLabel?.text = weatherLocations[indexPath.row].name
+//        cell.detailTextLabel?.text = "lat :\(weatherLocations[indexPath.row].latitude), long :\(weatherLocations[indexPath.row].longitude)"
         return cell
     }
     
@@ -120,10 +134,11 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     func setUpFetchResultController(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let fetchRequest : NSFetchRequest<MyCities> = MyCities.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
 
         do {
@@ -131,22 +146,63 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         } catch  {
             fatalError("The fetch could not be performed\(error.localizedDescription)")
         }
+        fetchedResultsController.delegate = self
 
     }
 
     
-    func weatherLocation(at indexPath: IndexPath) -> WeatherLocation {
-        return weatherLocations[indexPath.row]
-    }
+//    func weatherLocation(at indexPath: IndexPath) -> WeatherLocation {
+//        return weatherLocations[indexPath.row]
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? LocationDetailViewController{
             if let indexPath = myCitiesTableView.indexPathForSelectedRow{
-                vc.weatherLocation = weatherLocation(at: indexPath)
+//                vc.weatherLocation = weatherLocation(at: indexPath)
+                vc.myCities = fetchedResultsController.object(at: indexPath)
                 
-               
+                vc.dataController = dataController
+
             }
         }
     }
 }
 
+extension MyCitiesViewController : NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        myCitiesTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        myCitiesTableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            myCitiesTableView.insertRows(at: [newIndexPath!], with: .fade)
+           
+        case .delete:
+            myCitiesTableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+               myCitiesTableView.reloadRows(at: [indexPath!], with: .fade)
+           case .move:
+               myCitiesTableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert: myCitiesTableView.insertSections(indexSet, with: .fade)
+        case .delete: myCitiesTableView.deleteSections(indexSet, with: .fade)
+        case .update, .move:
+            fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
+        @unknown default:
+            fatalError()
+        }
+    }
+}
