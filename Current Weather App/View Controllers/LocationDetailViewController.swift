@@ -16,8 +16,7 @@ class LocationDetailViewController: UIViewController, NSFetchedResultsController
     @IBOutlet weak var temperatureLabel: UILabel!
     var networkWeatherClient = NetworkWeatherClient()
     var dataController : DataController!
-    var weatherLocation : WeatherLocation!
-    var weatherLocations : [WeatherLocation] = []
+    
     var myCities: MyCities!
     var fetchedResultsController : NSFetchedResultsController<MyCities>!
     override func viewDidLoad() {

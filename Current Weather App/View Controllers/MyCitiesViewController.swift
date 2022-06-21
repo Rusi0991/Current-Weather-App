@@ -10,8 +10,8 @@ import GooglePlaces
 import CoreData
 
 class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var weatherLocation : WeatherLocation!
-    var weatherLocations : [WeatherLocation] = []
+    
+    let userDefaults = UserDefaults()
     var dataController : DataController!
     var networkWeatherClient = NetworkWeatherClient()
     var myCities : MyCities!
@@ -34,7 +34,9 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
+        
        setUpFetchResultController()
+        
 
     }
     
@@ -117,11 +119,14 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         let cityToDelete = fetchedResultsController.object(at: indexPath)
         appDelegate.dataController.viewContext.delete(cityToDelete)
         try? appDelegate.dataController.viewContext.save()
+    
     }
+    
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         myCitiesTableView.setEditing(editing, animated: animated)
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -132,9 +137,19 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let itemToMove = weatherLocations[sourceIndexPath.row]
-        weatherLocations.remove(at: sourceIndexPath.row)
-        weatherLocations.insert(itemToMove, at: destinationIndexPath.row)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let itemToMove = fetchedResultsController.object(at: sourceIndexPath)
+        guard var items = fetchedResultsController.fetchedObjects else {return}
+        items.remove(at: sourceIndexPath.row)
+        items.insert(itemToMove, at: destinationIndexPath.row)
+        
+        
+        try? appDelegate.dataController.viewContext.save()
+        
+        
+       
+        
     }
 
     
