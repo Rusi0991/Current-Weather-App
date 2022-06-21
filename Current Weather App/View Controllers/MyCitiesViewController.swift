@@ -54,13 +54,13 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
            autocompleteController.delegate = self
 
 
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
            // Display the autocomplete view controller.
            present(autocompleteController, animated: true, completion: nil)
         self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
             print(currentWeather.cityName)
             guard let self = self else {return}
-            
+            try? appDelegate.dataController.viewContext.save()
             
             
         
@@ -68,15 +68,6 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-//    @IBAction func addCityPressed1(_ sender: UIBarButtonItem) {
-
-////        self.presentAddAlertController(title: "Enter city name", message: nil, style: .alert){ [unowned self] city in
-////            self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city))
-
-////            print(city)
-////
-////        }
-//    }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if myCitiesTableView.isEditing{
@@ -120,12 +111,26 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle : UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            weatherLocations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+    /// Deletes the notebook at the specified index path
+    func deleteCities(at indexPath: IndexPath) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let cityToDelete = fetchedResultsController.object(at: indexPath)
+        appDelegate.dataController.viewContext.delete(cityToDelete)
+        try? appDelegate.dataController.viewContext.save()
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        myCitiesTableView.setEditing(editing, animated: animated)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete: deleteCities(at: indexPath)
+        default: () // Unsupported
         }
     }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let itemToMove = weatherLocations[sourceIndexPath.row]
         weatherLocations.remove(at: sourceIndexPath.row)

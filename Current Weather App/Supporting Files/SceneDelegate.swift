@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let navigationController = window?.rootViewController as! UINavigationController
         let myCitiesVC = MyCitiesViewController()
-        myCitiesVC.dataController = appDelegate.dataController 
+        myCitiesVC.dataController = appDelegate.dataController
         //        let myCitiesVC = MyCitiesViewController()
         //        myCitiesVC.dataController = dataController
         
