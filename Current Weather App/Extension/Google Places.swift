@@ -13,13 +13,13 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
       let myCities = MyCities(context: appDelegate.dataController.viewContext)
-      myCities.cityName = place.name ?? "unknown place"
+      myCities.cityName = place.name?.unaccent() ?? "unknown place"
       myCities.longitude = place.coordinate.longitude
       myCities.latitude = place.coordinate.latitude
       myCities.creationDate = Date()
-          
+      
       do{
-          try dataController?.viewContext.save()
+          try appDelegate.dataController.viewContext.save()
       }catch{
           fatalError("Unable to  save data\(error.localizedDescription)")
       }
@@ -28,6 +28,7 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
     dismiss(animated: true, completion: nil)
       myCitiesTableView.reloadData()
   }
+    
 
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
     // TODO: handle the error.

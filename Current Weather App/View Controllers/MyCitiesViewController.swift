@@ -34,17 +34,30 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
        setUpFetchResultController()
+        myCitiesTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myCitiesTableView.reloadData()
+       
         setUpFetchResultController()
-
+        myCitiesTableView.reloadData()
     }
     @IBAction func addCityPressed(_ sender: Any) {
         let autocompleteController = GMSAutocompleteViewController()
            autocompleteController.delegate = self
+        
+            // Specify the place data types to return.
+            let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+                                                      UInt(GMSPlaceField.placeID.rawValue))
+            autocompleteController.placeFields = fields
+
+            // Specify a filter.
+            let filter = GMSAutocompleteFilter()
+            filter.type = .city
+            autocompleteController.autocompleteFilter = filter
+        
+        
 
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -54,7 +67,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
             print(currentWeather.cityName)
             guard let self = self else {return}
             try? appDelegate.dataController.viewContext.save()
-            
+          
             
         
         }
@@ -93,12 +106,15 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let aCity = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
         cell.textLabel?.text = aCity.cityName
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        try? appDelegate.dataController.viewContext.save()
         
         return cell
+        
     }
     
     /// Deletes the notebook at the specified index path

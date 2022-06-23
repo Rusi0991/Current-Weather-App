@@ -22,6 +22,7 @@
 		5749163927CDA694000AF1B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163827CDA694000AF1B9 /* Constants.swift */; };
 		5749163B27CEE20A000AF1B9 /* CurrentWeatherResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163A27CEE20A000AF1B9 /* CurrentWeatherResponses.swift */; };
 		5749163D27CEF170000AF1B9 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749163C27CEF170000AF1B9 /* CurrentWeather.swift */; };
+		5762EFF5286448A80024D667 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5762EFF4286448A80024D667 /* StringExtension.swift */; };
 		57ACAB762816F00B006B6FBA /* APIkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ACAB752816F00B006B6FBA /* APIkeys.swift */; };
 		57ACAB782816F920006B6FBA /* Google Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ACAB772816F920006B6FBA /* Google Places.swift */; };
 		57ACAB7A2819045A006B6FBA /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ACAB792819045A006B6FBA /* LocationDetailViewController.swift */; };
@@ -50,6 +51,7 @@
 		5749163827CDA694000AF1B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5749163A27CEE20A000AF1B9 /* CurrentWeatherResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherResponses.swift; sourceTree = "<group>"; };
 		5749163C27CEF170000AF1B9 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		5762EFF4286448A80024D667 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		57ACAB752816F00B006B6FBA /* APIkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkeys.swift; sourceTree = "<group>"; };
 		57ACAB772816F920006B6FBA /* Google Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Google Places.swift"; sourceTree = "<group>"; };
 		57ACAB792819045A006B6FBA /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				5749162927C87117000AF1B9 /* Alert Controller.swift */,
+				5762EFF4286448A80024D667 /* StringExtension.swift */,
 				57ACAB772816F920006B6FBA /* Google Places.swift */,
 			);
 			path = Extension;
@@ -315,6 +318,7 @@
 				5749163027C9AAA9000AF1B9 /* ConverterViewController.swift in Sources */,
 				5749163D27CEF170000AF1B9 /* CurrentWeather.swift in Sources */,
 				57ACAB782816F920006B6FBA /* Google Places.swift in Sources */,
+				5762EFF5286448A80024D667 /* StringExtension.swift in Sources */,
 				57ACAB762816F00B006B6FBA /* APIkeys.swift in Sources */,
 				5749163B27CEE20A000AF1B9 /* CurrentWeatherResponses.swift in Sources */,
 			);
