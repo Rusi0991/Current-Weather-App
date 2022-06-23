@@ -25,8 +25,9 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
           fatalError("Unable to  save data\(error.localizedDescription)")
       }
       
-      myCitiesTableView.reloadData()
+      
     dismiss(animated: true, completion: nil)
+      myCitiesTableView.reloadData()
   }
 
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
