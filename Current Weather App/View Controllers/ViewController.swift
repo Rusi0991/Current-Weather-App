@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var networkWeatherClient = NetworkWeatherClient()
     lazy var locationManager: CLLocationManager = {
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
-        
+        self.activityIndicator.startAnimating()
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
                         print(currentWeather.cityName)
                         guard let self = self else {return}
@@ -45,11 +46,15 @@ class ViewController: UIViewController {
             locationManager.requestLocation()
         }
         
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hamburgerView.isHidden = true
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
         
     }
 
