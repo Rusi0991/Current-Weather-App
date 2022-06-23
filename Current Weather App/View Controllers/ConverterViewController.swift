@@ -9,11 +9,9 @@ import UIKit
 
 class ConverterViewController: UIViewController {
     
-    
+//    Oulets
     @IBOutlet weak var celsiusLabel: UILabel!
-    
     @IBOutlet weak var fahrenheitLabel: UILabel!
-    
     @IBOutlet weak var slider: UISlider!{
     
     didSet{
@@ -22,6 +20,7 @@ class ConverterViewController: UIViewController {
         slider.value = 0
     }
     }
+//    Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
 

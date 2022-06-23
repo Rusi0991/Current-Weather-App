@@ -331,11 +331,16 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ezd-HN-Gxe">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Npy-Id-qfu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ezd-HN-Gxe" firstAttribute="centerY" secondItem="3jc-dY-OYI" secondAttribute="centerY" id="42K-ux-FEd"/>
                             <constraint firstItem="6aN-NO-iFu" firstAttribute="leading" secondItem="Npy-Id-qfu" secondAttribute="leading" id="6yI-0d-4Ix"/>
+                            <constraint firstItem="ezd-HN-Gxe" firstAttribute="centerX" secondItem="3jc-dY-OYI" secondAttribute="centerX" id="9vN-ce-FVh"/>
                             <constraint firstItem="bMM-Xq-e40" firstAttribute="bottom" secondItem="Npy-Id-qfu" secondAttribute="bottom" id="ebc-1K-UGR"/>
                             <constraint firstItem="bMM-Xq-e40" firstAttribute="leading" secondItem="Npy-Id-qfu" secondAttribute="leading" id="i5h-P4-LU3"/>
                             <constraint firstItem="bMM-Xq-e40" firstAttribute="top" secondItem="6aN-NO-iFu" secondAttribute="bottom" constant="403" id="nyl-gb-x0i"/>
@@ -346,6 +351,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7EI-Le-dNo"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ezd-HN-Gxe" id="ckP-0w-pnP"/>
                         <outlet property="cityLabel" destination="TYE-HN-Hi1" id="cGX-2R-50F"/>
                         <outlet property="feelsLikeTemperatureLabel" destination="E0k-th-RdD" id="mwZ-34-8lC"/>
                         <outlet property="temperatureLabel" destination="sxw-vg-1mJ" id="CBf-y4-f2n"/>
@@ -557,7 +563,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7UX-F5-sAh"/>
+        <segue reference="vgX-YD-p4D"/>
         <segue reference="Owq-bp-uN6"/>
     </inferredMetricsTieBreakers>
     <resources>

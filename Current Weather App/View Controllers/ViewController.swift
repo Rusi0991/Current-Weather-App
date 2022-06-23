@@ -10,17 +10,15 @@ import CoreLocation
 
 
 class ViewController: UIViewController {
-    
+//    Outlets
     @IBOutlet weak var hamburgerView: UIView!
     @IBOutlet weak var weatherIconImageView: UIImageView!
-    
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
-    
     @IBOutlet weak var cityLabel: UILabel!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+//    Properties
     var networkWeatherClient = NetworkWeatherClient()
     lazy var locationManager: CLLocationManager = {
         let lm = CLLocationManager()
@@ -31,9 +29,11 @@ class ViewController: UIViewController {
     }()
     var menuOut = false
     
+//    Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         hamburgerView.isHidden = true
+        self.activityIndicator.style = .large
         self.activityIndicator.startAnimating()
                     self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
                         print(currentWeather.cityName)
@@ -61,25 +61,14 @@ class ViewController: UIViewController {
     @IBAction func menuButtonClicked(_ sender: Any) {
         hamburgerView.isHidden = false
         if menuOut == false{
-//            hamburgerViewLeadingC.constant = 0
-//            hamburgerViewTrailingC.constant = 0
+
             menuOut = true
         } else {
-//            hamburgerViewLeadingC.constant = 0
-//            hamburgerViewTrailingC.constant = 0
+
             menuOut = false
             hamburgerView.isHidden = true
         }
-//
-//        UIView.animate(withDuration: 3, delay: 0.0, options: .curveEaseIn, animations:  {
-//            self.view.setNeedsLayout()
-//            self.view.layoutIfNeeded()
-//        })
 
-//                        {(animationComplete) in
-//                            print("The animation is complete")
-//
-//        }
 
 
     }

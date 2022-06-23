@@ -10,20 +10,19 @@ import GooglePlaces
 import CoreData
 
 class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+//    Properties
     let userDefaults = UserDefaults()
     var dataController : DataController!
     var networkWeatherClient = NetworkWeatherClient()
     var myCities : MyCities!
     var fetchedResultsController : NSFetchedResultsController<MyCities>!
     
-    
+//    Outlets
     @IBOutlet weak var myCitiesTableView: UITableView!
-    
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var addCityBarButton: UIBarButtonItem!
     
-    
+//    Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         myCitiesTableView.delegate = self
@@ -34,22 +33,14 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        
        setUpFetchResultController()
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCitiesTableView.reloadData()
         setUpFetchResultController()
-//        self.networkWeatherClient.onCompletion = {[weak self]currentWeather in
-//            print(currentWeather.cityName)
-//            guard let self = self else {return}
-//
-//
-//        }
+
     }
     @IBAction func addCityPressed(_ sender: Any) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -97,8 +88,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        setUpFetchResultController()
-//        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+
          return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
@@ -108,8 +98,6 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = aCity.cityName
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         
-//        cell.textLabel?.text = weatherLocations[indexPath.row].name
-//        cell.detailTextLabel?.text = "lat :\(weatherLocations[indexPath.row].latitude), long :\(weatherLocations[indexPath.row].longitude)"
         return cell
     }
     
@@ -136,21 +124,21 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let itemToMove = fetchedResultsController.object(at: sourceIndexPath)
-        guard var items = fetchedResultsController.fetchedObjects else {return}
-        items.remove(at: sourceIndexPath.row)
-        items.insert(itemToMove, at: destinationIndexPath.row)
-        
-        
-        try? appDelegate.dataController.viewContext.save()
-        
-        
-       
-        
-    }
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let itemToMove = fetchedResultsController.object(at: sourceIndexPath)
+//        guard var items = fetchedResultsController.fetchedObjects else {return}
+//        items.remove(at: sourceIndexPath.row)
+//        items.insert(itemToMove, at: destinationIndexPath.row)
+//
+//
+//        try? appDelegate.dataController.viewContext.save()
+//
+//
+//       
+//
+//    }
 
     
     func setUpFetchResultController(){
@@ -171,16 +159,12 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     
-//    func weatherLocation(at indexPath: IndexPath) -> WeatherLocation {
-//        return weatherLocations[indexPath.row]
-//    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? LocationDetailViewController{
             if let indexPath = myCitiesTableView.indexPathForSelectedRow{
-//                vc.weatherLocation = weatherLocation(at: indexPath)
                 vc.myCities = fetchedResultsController.object(at: indexPath)
-                
                 vc.dataController = dataController
 
             }

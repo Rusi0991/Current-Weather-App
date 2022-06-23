@@ -12,7 +12,6 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
   // Handle the user's selection.
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//      let newLocation = WeatherLocation(name: place.name ?? "unknown place", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
       let myCities = MyCities(context: appDelegate.dataController.viewContext)
       myCities.cityName = place.name ?? "unknown place"
       myCities.longitude = place.coordinate.longitude

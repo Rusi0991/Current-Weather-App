@@ -9,18 +9,23 @@ import UIKit
 import CoreData
 
 class LocationDetailViewController: UIViewController, NSFetchedResultsControllerDelegate {
-
+// Outlets
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+//    Properties
     var networkWeatherClient = NetworkWeatherClient()
     var dataController : DataController!
-    
     var myCities: MyCities!
     var fetchedResultsController : NSFetchedResultsController<MyCities>!
+    
+//    Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicator.style = .large
+        self.activityIndicator.startAnimating()
         let city = myCities.cityName?.split(separator: " ").joined(separator: "%20")
         self.networkWeatherClient.fetchCurrentWeather(forRequestType: .cityName(city: city!))
 
@@ -30,11 +35,8 @@ class LocationDetailViewController: UIViewController, NSFetchedResultsController
             self.updateInterfaceWith(weather: currentWeather)
 
         }
-//        if weatherLocation == nil{
-//            weatherLocation = WeatherLocation(name: "Current Location", latitude: 0.0, longitude: 0.0)
-//            weatherLocations.append(weatherLocation)
-//        }
-        
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
         
     }
     
@@ -50,16 +52,6 @@ class LocationDetailViewController: UIViewController, NSFetchedResultsController
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destination = segue.destination as! MyCitiesViewController
-//        destination.weatherLocations = weatherLocations
-//    }
-//
-//  @IBAction func unwindSegueFromLocationListVC(segue : UIStoryboardSegue){
-//      let source = segue.source as! MyCitiesViewController
-//      weatherLocations = source.weatherLocations
-//      weatherLocation = weatherLocations[source.selectedLocationIndex]
-//      updateInterfaceWith()
-//    }
+
 
 }

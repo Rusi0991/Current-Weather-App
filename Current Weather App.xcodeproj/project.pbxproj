@@ -28,7 +28,6 @@
 		57C9CCD527FD0DD100A53940 /* CurrentWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCD327FD0DD100A53940 /* CurrentWeather.xcdatamodeld */; };
 		57C9CCD727FD11F200A53940 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCD627FD11F200A53940 /* DataController.swift */; };
 		57ECBF30281138F5005670BE /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBF2F281138F5005670BE /* WeatherLocation.swift */; };
-		57EDFE15285A51A40096DA3A /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EDFE14285A51A40096DA3A /* Cell.swift */; };
 		5909FD7549DB2B271BFC5782 /* libPods-Current Weather App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C60AC20ACB03C6CFD09F464 /* libPods-Current Weather App.a */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		57C9CCD427FD0DD100A53940 /* CurrentWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrentWeather.xcdatamodel; sourceTree = "<group>"; };
 		57C9CCD627FD11F200A53940 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		57ECBF2F281138F5005670BE /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
-		57EDFE14285A51A40096DA3A /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		6EA8909E05D647C26721F7D7 /* Pods-Current Weather App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Current Weather App.release.xcconfig"; path = "Target Support Files/Pods-Current Weather App/Pods-Current Weather App.release.xcconfig"; sourceTree = "<group>"; };
 		7C60AC20ACB03C6CFD09F464 /* libPods-Current Weather App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Current Weather App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,7 +138,6 @@
 			children = (
 				5749161127C8459D000AF1B9 /* AppDelegate.swift */,
 				5749161327C8459D000AF1B9 /* SceneDelegate.swift */,
-				57EDFE14285A51A40096DA3A /* Cell.swift */,
 				57ACAB752816F00B006B6FBA /* APIkeys.swift */,
 				5749163827CDA694000AF1B9 /* Constants.swift */,
 				5749161A27C8459F000AF1B9 /* Assets.xcassets */,
@@ -320,7 +317,6 @@
 				57ACAB782816F920006B6FBA /* Google Places.swift in Sources */,
 				57ACAB762816F00B006B6FBA /* APIkeys.swift in Sources */,
 				5749163B27CEE20A000AF1B9 /* CurrentWeatherResponses.swift in Sources */,
-				57EDFE15285A51A40096DA3A /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,11 @@
 import UIKit
 
 class HamburgerViewController: UIViewController {
+//    Outlets
     @IBOutlet var mainBackgroundView: UIView!
-    
     @IBOutlet weak var logoPicImage: UIImageView!
+    
+//    Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
