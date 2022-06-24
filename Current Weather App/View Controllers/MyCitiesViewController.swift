@@ -152,7 +152,7 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
 //        try? appDelegate.dataController.viewContext.save()
 //
 //
-//       
+
 //
 //    }
 

@@ -22,6 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func checkIfFirstLaunch(){
+        if UserDefaults.standard.bool(forKey: "Has launched before"){
+            print("App has launched before")
+        } else{
+            print("This is the first launch ever")
+            UserDefaults.standard.set(true, forKey: "Has launched before")
+            UserDefaults.standard.set(0.0, forKey: "Slider value key")
+            
+            
+            UserDefaults.standard.synchronize()
+        }
+    }
 
     // MARK: UISceneSession Lifecycle
 
@@ -39,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Lock the orientation to Portrait mode
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
+    }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        checkIfFirstLaunch()
+        return true
     }
 
 }
