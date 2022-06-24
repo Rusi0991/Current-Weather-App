@@ -1,20 +1,23 @@
 # Current-Weather-App
+
+
 ### Overview
 This demo is very simple project, which designed to understand SwiftUI. It includes :
 + Main screen which displays the current weather conditions for your location with search for city option
 + Hamburger menu with 2 view options :
-    1. Converter View for converting temperature
-    2. My Cities Table View for saving cities list
+    +  Converter View for converting temperature
+    +  My Cities Table View for saving cities list
 + Location Detail View Controller for showing current weather of the selected city
 
 Please see screenshots below for the functionality of the app
 
 
-![Main View](main.png)
-![Hamburger View](hamburger.png)
-![Converter View](converter.png)
-![My Cities View](mycities.png)
-![Detail View](detail.png)
+<img src="https://user-images.githubusercontent.com/70414587/175656318-9b5b80b6-0fec-444b-9e6f-ca5c47f380a0.png" width="200" height="450">
+<img src="https://user-images.githubusercontent.com/70414587/175656584-7bc6db39-a761-44f3-8032-efe8024f0f1f.png" width="200" height="450">
+<img src="https://user-images.githubusercontent.com/70414587/175656620-cbca8dba-f044-4989-ab37-a15ad583f0cc.png" width="200" height="450">
+<img src="https://user-images.githubusercontent.com/70414587/175656662-8cd26504-66a7-42d6-b132-96d2b19a4d1d.png" width="200" height="450">
+<img src="https://user-images.githubusercontent.com/70414587/175656685-049a2ef7-b246-4da1-be9b-cb4fac410f20.png" width="200" height="450">
+
 
 This app was completed as the final project for Udacity course - Become an iOS Developer - and uses fundamental principles of iOS development such as:
 
@@ -28,11 +31,17 @@ And using 3rd party libraries such as GooglePlaces via CocoaPods
 Language: Swift
 Final Project for: Udacity - Become an iOS Developer
 
+
+
+
 ### Requirements
 
 Xcode 13 or above
 
 Swift 4 or above
+
+
+
 
 ### Intallation
 
@@ -41,6 +50,9 @@ Install CocoaPods by typing this code in command line of terminal
 `$ sudo gem install cocoapods`
 
 Use the Xcode workspace Current Weather App.xcworkspace, not the Xcode project.
+
+
+
 
 ### Maintainers
 
