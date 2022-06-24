@@ -136,7 +136,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="zTw-qs-3MM">
-                        <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="vJW-Jk-aEQ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="vJW-Jk-aEQ">
                             <connections>
                                 <action selector="menuButtonClicked:" destination="BYZ-38-t0r" id="0x2-JS-sBD"/>
                             </connections>

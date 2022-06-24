@@ -52,6 +52,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        menuOut = false
         hamburgerView.isHidden = true
         self.activityIndicator.isHidden = true
         self.activityIndicator.stopAnimating()

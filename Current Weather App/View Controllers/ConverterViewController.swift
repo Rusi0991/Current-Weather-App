@@ -34,9 +34,9 @@ class ConverterViewController: UIViewController {
     
     
     @IBAction func sliderChanged(_ sender: UISlider) {
-        var temperatureCelsius = Int(round(sender.value))
+        let temperatureCelsius = Int(round(sender.value))
         celsiusLabel.text = "\(temperatureCelsius)ºC"
-        var fahrenheitTemperature = Int(round((sender.value * 9/5) + 32))
+        let fahrenheitTemperature = Int(round((sender.value * 9/5) + 32))
         fahrenheitLabel.text = "\(fahrenheitTemperature)ºF"
         // Save the slider location
             UserDefaults.standard.set(slider.value, forKey: "Slider value key")
