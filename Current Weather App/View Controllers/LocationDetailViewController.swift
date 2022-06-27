@@ -35,9 +35,9 @@ class LocationDetailViewController: UIViewController, NSFetchedResultsController
             self.updateInterfaceWith(weather: currentWeather)
 
         }
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
         
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
     }
     
     func updateInterfaceWith(weather : CurrentWeather){

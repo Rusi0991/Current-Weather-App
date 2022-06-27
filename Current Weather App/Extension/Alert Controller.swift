@@ -29,6 +29,19 @@ extension ViewController{
         ac.addAction(cancel)
         present(ac, animated: true, completion: nil)
 }
+    
+    func alertForFail(){
+        let alert = UIAlertController(title: "Error", message: "Something Went Wrong", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
 }
 
+extension MyCitiesViewController{
+    func alertForFail(){
+        let alert = UIAlertController(title: "Error", message: "Something Went Wrong", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+}
 

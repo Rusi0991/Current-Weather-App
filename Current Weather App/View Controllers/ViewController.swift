@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
+        } else{
+            alertForFail()
         }
         
         
@@ -54,9 +56,9 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         menuOut = false
         hamburgerView.isHidden = true
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
         
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
     }
 
     @IBAction func menuButtonClicked(_ sender: Any) {
@@ -107,6 +109,7 @@ extension ViewController : CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
         print(error.localizedDescription)
     }
 }

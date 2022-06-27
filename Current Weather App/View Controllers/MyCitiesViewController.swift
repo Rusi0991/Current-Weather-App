@@ -48,8 +48,8 @@ class MyCitiesViewController: UIViewController, UITableViewDelegate, UITableView
            autocompleteController.delegate = self
         
             // Specify the place data types to return.
-            let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-                                                      UInt(GMSPlaceField.placeID.rawValue))
+           let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+                                                        UInt(GMSPlaceField.placeID.rawValue))
             autocompleteController.placeFields = fields
 
             // Specify a filter.

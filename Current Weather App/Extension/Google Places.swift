@@ -31,7 +31,7 @@ extension MyCitiesViewController : GMSAutocompleteViewControllerDelegate {
     
 
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-    // TODO: handle the error.
+    alertForFail()
     print("Error: ", error.localizedDescription)
   }
 
