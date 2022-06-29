@@ -58,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkIfFirstLaunch()
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveViewcontext()
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    func saveViewcontext(){
+        try? dataController.viewContext.save()
+    }
 
 }
 

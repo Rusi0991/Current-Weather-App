@@ -10,6 +10,7 @@ import UIKit
 class ConverterViewController: UIViewController {
     
 //    Oulets
+    @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var celsiusLabel: UILabel!
     @IBOutlet weak var fahrenheitLabel: UILabel!
     @IBOutlet weak var slider: UISlider!{
@@ -30,7 +31,28 @@ class ConverterViewController: UIViewController {
         
         celsiusLabel.text = UserDefaults.standard.string(forKey: "Celsius Value Changed")
         fahrenheitLabel.text = UserDefaults.standard.string(forKey:  "Fahrenheit Value Changed")
+        pictureChanged()
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+
+        
+    }
+    
+    fileprivate func pictureChanged() {
+        if slider.value > 0 {
+            ImageView.image = UIImage(named: "Image-1")
+        } else if slider.value <= 0 {
+            ImageView.image = UIImage(named: "image-3")
+        } else {
+            print("Something went wrong ")
+        }
+       
+    }
+    
+    
     
     
     @IBAction func sliderChanged(_ sender: UISlider) {
@@ -43,7 +65,7 @@ class ConverterViewController: UIViewController {
         UserDefaults.standard.set("\(temperatureCelsius)ºC", forKey: "Celsius Value Changed")
         UserDefaults.standard.set("\(fahrenheitTemperature)ºF", forKey: "Fahrenheit Value Changed")
         
-      
+      pictureChanged()
       
         
     }

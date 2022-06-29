@@ -369,7 +369,7 @@
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKa-ip-Q4v">
                         <rect key="frame" x="0.0" y="0.0" width="354" height="842"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-2" translatesAutoresizingMaskIntoConstraints="NO" id="kpx-ah-l4l">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpx-ah-l4l">
                                 <rect key="frame" x="0.0" y="0.0" width="354" height="842"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T - Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Av-v9-n6y">
@@ -438,6 +438,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="H6W-OG-Sur"/>
                     <connections>
+                        <outlet property="ImageView" destination="kpx-ah-l4l" id="xYh-oh-7sU"/>
                         <outlet property="celsiusLabel" destination="64u-be-XN4" id="EUz-98-csI"/>
                         <outlet property="fahrenheitLabel" destination="iNb-f0-b5g" id="J4c-zW-Ciy"/>
                         <outlet property="slider" destination="Z7j-ES-ZOv" id="dAL-8k-CR4"/>
@@ -567,7 +568,6 @@
         <segue reference="Owq-bp-uN6"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Image-2" width="375" height="667"/>
         <image name="Weather" width="400" height="300"/>
         <image name="background" width="375" height="667"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
