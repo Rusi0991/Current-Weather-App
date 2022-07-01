@@ -44,8 +44,6 @@ class ViewController: UIViewController {
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
-        } else{
-            alertForFail()
         }
         
         
@@ -109,7 +107,7 @@ extension ViewController : CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+        alertForFail()
         print(error.localizedDescription)
     }
 }
