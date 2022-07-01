@@ -22,8 +22,7 @@ class HamburgerViewController: UIViewController {
     func hamburgerUI(){
         mainBackgroundView.layer.cornerRadius = 30
         mainBackgroundView.clipsToBounds = true
-        logoPicImage.layer.cornerRadius = 40
-        logoPicImage.clipsToBounds = true
+       
     }
     
 }

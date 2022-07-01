@@ -35,11 +35,7 @@ class ConverterViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-
-        
-    }
+    
     
     fileprivate func pictureChanged() {
         if slider.value > 0 {
